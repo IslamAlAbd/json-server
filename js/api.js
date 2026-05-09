@@ -65,7 +65,9 @@ const apiDeleteUser = async (id) => {
 const renderTable = (users) => {
   const tableBody = document.getElementById("userTableBody");
   tableBody.innerHTML = ""; // Clear existing data
+  if(users.length === 0){
 
+  }else{
   users.forEach((user) => {
     const row = document.createElement("tr");
     row.dataset.userId = user.id; // Store ID in data attribute
@@ -77,14 +79,17 @@ const renderTable = (users) => {
       <td>
         <button type="button" class="btn btn-danger btn-delete">Delete</button>
         <button type="button" class="btn btn-success btn-edit"
-        data-first="${user.first}"
-        data-last="${user.last}"
-        data-age="${user.age}"
-         data-bs-toggle="modal" data-bs-target="#editUserModal">Edit</button>
+        // data-first="${user.first}"
+        // data-last="${user.last}"
+        // data-age="${user.age}"
+         onclick="openEditUser('${user.id}')">Edit</button>
+
+
+         <a href="http://localhost:3000/users/${user.id}" target="_blank" class="btn btn-primary" onclick="openEditUser1()">get me</a>
       </td>
     `;
     tableBody.appendChild(row);
-  });
+  })};
 
   // Attach delete listeners to all buttons
   attachDeleteListeners();

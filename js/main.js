@@ -15,7 +15,9 @@ const saveUser = async () => {
   document.getElementById("firstName").value = "";
   document.getElementById("lastName").value ="";
   document.getElementById("age").value ="";
-
+  const addNewUserModal = new bootstrap.Modal("#exampleModal")
+  addNewUserModal.hide();
+  window.location.reload();
 };
 
 let currentEditUserId = null;
@@ -40,3 +42,15 @@ document.addEventListener("click", (e) => {
     document.getElementById("edit_age").value = btn.dataset.age;
   }
 });
+
+
+
+
+const openEditUser = (id) => {
+  alert(id)
+}
+
+const openEditUser1 = (e) => {
+  e.preventDefault();
+  alert('asdasda')
+}
